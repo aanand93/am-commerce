@@ -2,8 +2,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const {
+	handleErrors,
+	handleValidationErrors,
+} = require('./middleware/custom_errors');
 
-// Require the job resource routes and controllers
+// Require the client resource routes and controllers
 const clientController = require('./controllers/clients');
 const userController = require('./controllers/users');
 
@@ -24,11 +28,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/clients', clientController);
 app.use('/api', userController);
 
-app.use((err, req, res, next) => {
-	const statusCode = err.statusCode || 500;
-	const message = err.message || 'Internal Server Error';
-	res.status(statusCode).send(message);
-});
+app.use(handleValidationErrors);
+app.use(handleErrors);
 
 app.set('port', process.env.PORT || 4000);
 
