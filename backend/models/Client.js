@@ -12,6 +12,11 @@ const clientSchema = new mongoose.Schema({
 	company_name: String,
 	phone_number: Number,
 	date_needed: String,
+	owner: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User',
+		required: true,
+	},
 });
 
 module.exports = mongoose.model('Client', clientSchema);
