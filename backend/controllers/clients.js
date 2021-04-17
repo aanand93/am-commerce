@@ -7,6 +7,7 @@ const router = express.Router();
 // GET api/clients
 router.get('/', (req, res, next) => {
 	Client.find()
+		.populate('owner', 'email -_id')
 		.then((clients) => res.json(clients))
 		.catch(next);
 });
@@ -15,6 +16,7 @@ router.get('/', (req, res, next) => {
 // GET api/clients/5a7db6c74d55bc51bdf39793
 router.get('/:id', (req, res, next) => {
 	Client.findById(req.params.id)
+		.populate('owner')
 		.then((client) => {
 			if (!client) {
 				res.sendStatus(404);
