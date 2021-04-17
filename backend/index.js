@@ -5,6 +5,7 @@ const cors = require('cors');
 
 // Require the job resource routes and controllers
 const clientController = require('./controllers/clients');
+const userController = require('./controllers/users');
 
 // Instantiate express application object
 const app = express();
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Configure the route middleware
 app.use('/api/clients', clientController);
+app.use('/api', userController);
 
 app.use((err, req, res, next) => {
 	const statusCode = err.statusCode || 500;
