@@ -42,43 +42,62 @@ const Signup = ({ user, setUser, token, setToken }) => {
 					})
 					.then((res) => {
 						setToken(res.data.token);
+						console.log(res.data.token);
 					});
 			});
 	};
 
 	if (token) {
 		return (
-            <div>
-                <h1>hello </h1>
-            </div>
-
-
+			<div>
+				<h1>hello </h1>
+			</div>
 		);
 	} else {
 		return (
-		<div className='newForm'><h1>Sign Up!</h1>
-		<form><b>USERNAME:</b>
-			<br />
-		<input type='text' name='userName' placeholder='Name'onChange={changeUserName}/>
+			<div className='newForm'>
+				<h1>Sign Up!</h1>
+				<form>
+					<b>USERNAME:</b>
 					<br />
-		<b>EMAIL:</b>
+					<input
+						type='text'
+						name='userName'
+						placeholder='Name'
+						onChange={changeUserName}
+					/>
 					<br />
-		<input type='text'name='email'placeholder='Email'onChange={changeEmail}/>
+					<b>EMAIL:</b>
 					<br />
-		<b>PASSWORD:</b>
+					<input
+						type='text'
+						name='email'
+						placeholder='Email'
+						onChange={changeEmail}
+					/>
 					<br />
-		<input type='text' name='password' placeholder='Password' onChange={changePassword} />
+					<b>PASSWORD:</b>
+					<br />
+					<input
+						type='text'
+						name='password'
+						placeholder='Password'
+						onChange={changePassword}
+					/>
 					<br />
 					<br />
-		<button className='myButton' onClick={(event) => signUpUser(event)}>Sign Up!</button>
-		<div> <h1></h1>{' '}
+					<button className='myButton' onClick={(event) => signUpUser(event)}>
+						Sign Up!
+					</button>
+					<div>
+						{' '}
+						<h1></h1>{' '}
 						<Link className='signIn' to='/signin'>
 							Login Here!
 						</Link>
 					</div>
 				</form>
 				<br />
-			
 			</div>
 		);
 	}

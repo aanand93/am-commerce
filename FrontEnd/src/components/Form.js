@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import APIurl from '../config'
-import axios from 'axios'
-
-
+import APIurl from '../config';
+import axios from 'axios';
 
 function Form({ token }) {
 	//  const [token, setToken] = useState(null);
@@ -23,7 +21,7 @@ function Form({ token }) {
 			},
 		})
 			.then((res) => res.json())
-      
+
 			.catch(console.error);
 
 		console.log(token);
@@ -32,7 +30,7 @@ function Form({ token }) {
 	return (
 		<div>
 			<div>
-				<form onSubmit={handleSubmit} className='create-form'>
+				<form onSubmit={handleSubmit} token={token} className='create-form'>
 					<label for='apparel'>apparel</label>
 					<input
 						onChange={handleChange}
