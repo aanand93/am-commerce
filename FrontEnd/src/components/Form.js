@@ -20,6 +20,8 @@ function Form({ token, client }) {
 			},
 			body: JSON.stringify(client),
 		});
+		setApparel({ apparel: '', quantity: 0 });
+
 		// axios({
 		// 	url: `${APIurl}/clients`,
 		// 	method: 'POST',
@@ -40,7 +42,7 @@ function Form({ token, client }) {
 					<input
 						onChange={handleChange}
 						name='apparel'
-						value={apparel.apparel_type}
+						value={apparel.apparel}
 						placeholder='apparel_type'
 					/>
 					<label for='quantity'>quantity </label>
