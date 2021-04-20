@@ -2,10 +2,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const {
-	handleErrors,
-	handleValidationErrors,
-} = require('./middleware/custom_errors');
+const { handleErrors, handleValidationErrors, } = require('./middleware/custom_errors');
+
 
 // Require the client resource routes and controllers
 const clientController = require('./controllers/clients');
