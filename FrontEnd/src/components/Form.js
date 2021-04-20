@@ -1,17 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Form = () => {
-    return (
+import APIurl from '../config';
+import axios from 'axios';
+
+function Form({ token }) {
+	//  const [token, setToken] = useState(null);
+	const [apparel, setApparel] = useState({ apparel: '', quantity: 0 });
+
+	const handleChange = (event) => {
+		setApparel({ ...apparel, [event.target.name]: event.target.value });
+	};
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		axios({
+			url: `${APIurl}/clients`,
+			method: 'POST',
+			header: {
+				Authorization: `bearer ${token}`,
+			},
+		})
+			.then((res) => res.json())
+
+			.catch(console.error);
+
+		console.log(token);
+	};
+
+	return (
+		<div>
 			<div>
-    <form className='create-form'>
-	<label for=''> </label>
-	<input name='' placeholder='' />
-	<label for=''> </label>
-	<input name=''placeholder=''/>
-	<button id='button' type='submit'>Submit</button>
-	</form>
+				<form onSubmit={handleSubmit} token={token} className='create-form'>
+					<label for='apparel'>apparel</label>
+					<input
+						onChange={handleChange}
+						name='apparel'
+						value={apparel.apparel_type}
+						placeholder='apparel_type'
+					/>
+					<label for='quantity'>quantity </label>
+					<input
+						onChange={handleChange}
+						name='quantity'
+						value={apparel.quantity}
+						placeholder='quantity'
+					/>
+					<button id='button' type='submit'>
+						{' '}
+						Submit
+					</button>
+				</form>
 			</div>
-		);
-};
+		</div>
+	);
+}
 
 export default Form;

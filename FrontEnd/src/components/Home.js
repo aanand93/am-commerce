@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Signup from './Signup';
 
-const home = () => {
-    return (
-        <div>
-            <h1>Home</h1>
-        </div>
-    );
+const Home = () => {
+	const [user, setUser] = useState(null);
+	const [token, setToken] = useState(null);
+
+	return (
+		<div>
+			<h1>Home</h1>
+			<Signup user={user} setUser={setUser} setToken={setToken} token={token} />
+		</div>
+	);
 };
 
-export default home;
+export default Home;
