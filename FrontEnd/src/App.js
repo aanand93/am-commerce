@@ -7,8 +7,8 @@ import Form from './components/Form';
 import Apparel from './components/Apparel';
 import Signin from './components/Signin';
 
-function App({ token }) {
-	// const [token, setToken] = useState(null);
+function App() {
+	const [token, setToken] = useState();
 
 	return (
 		<div className='App'>

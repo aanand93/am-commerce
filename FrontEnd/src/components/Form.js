@@ -23,14 +23,13 @@ function Form({ token }) {
 			.then((res) => res.json())
 
 			.catch(console.error);
-
 		console.log(token);
 	};
 
 	return (
 		<div>
 			<div>
-				<form onSubmit={handleSubmit} token={token} className='create-form'>
+				<form onSubmit={handleSubmit} className='create-form'>
 					<label for='apparel'>apparel</label>
 					<input
 						onChange={handleChange}

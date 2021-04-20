@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import SignOutPage from '../SignOutPage';
 import APIurl from '../config.js';
+import Form from './Form';
 
 const Signup = ({ user, setUser, token, setToken }) => {
 	const [userName, setUserName] = useState('');
@@ -50,7 +51,8 @@ const Signup = ({ user, setUser, token, setToken }) => {
 	if (token) {
 		return (
 			<div>
-				<h1>hello </h1>
+				<h1>Enter your Custom Inquiry info </h1>
+				<Form token={token} />
 			</div>
 		);
 	} else {
