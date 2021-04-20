@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
 import APIurl from '../config';
-import axios from 'axios';
+// import axios from 'axios';
 
-function Form({ token }) {
+function Form({ token, client }) {
 	//  const [token, setToken] = useState(null);
 	const [apparel, setApparel] = useState({ apparel: '', quantity: 0 });
 
@@ -13,17 +13,23 @@ function Form({ token }) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		axios({
-			url: `${APIurl}/clients`,
+		fetch(`${APIurl}/clients`, {
 			method: 'POST',
-			header: {
-				Authorization: `bearer ${token}`,
+			headers: {
+				Authorization: `Bearer ${token}`,
 			},
-		})
-			.then((res) => res.json())
-
-			.catch(console.error);
-		console.log(token);
+			body: JSON.stringify(client),
+		});
+		// axios({
+		// 	url: `${APIurl}/clients`,
+		// 	method: 'POST',
+		// 	header: {
+		// 		Authorization: 'Bearer' + token,
+		// 	},
+		// })
+		// 	.then((res) => res.json())
+		// 	.catch(console.error);
+		// console.log(token);
 	};
 
 	return (
