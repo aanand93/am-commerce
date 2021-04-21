@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import APIurl from '../config';
 // import axios from 'axios';
 
-function Form({ token, client }) {
+function Form({ token }) {
 	//  const [token, setToken] = useState(null);
 	const [apparel, setApparel] = useState({ apparel: '', quantity: 0 });
 
@@ -18,20 +18,12 @@ function Form({ token, client }) {
 			headers: {
 				Authorization: `Bearer ${token}`,
 			},
-			body: JSON.stringify(client),
-		});
-		setApparel({ apparel: '', quantity: 0 });
-
-		// axios({
-		// 	url: `${APIurl}/clients`,
-		// 	method: 'POST',
-		// 	header: {
-		// 		Authorization: 'Bearer' + token,
-		// 	},
-		// })
-		// 	.then((res) => res.json())
-		// 	.catch(console.error);
-		// console.log(token);
+			body: JSON.stringify(apparel),
+		})
+			.then((res) => {
+				setApparel({ apparel: '', quantity: 0 });
+			})
+			.catch(console.error);
 	};
 
 	return (
