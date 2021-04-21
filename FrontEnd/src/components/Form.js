@@ -5,7 +5,7 @@ import APIurl from '../config';
 
 function Form({ token }) {
 	//  const [token, setToken] = useState(null);
-	const [apparel, setApparel] = useState({ apparel: '', quantity: 0 });
+	const [apparel, setApparel] = useState({ apparel_type: '', quantity: 0 });
 
 	const handleChange = (event) => {
 		setApparel({ ...apparel, [event.target.name]: event.target.value });
@@ -21,7 +21,7 @@ function Form({ token }) {
 			body: JSON.stringify(apparel),
 		})
 			.then((res) => {
-				setApparel({ apparel: '', quantity: 0 });
+				setApparel({ apparel_type: '', quantity: 0 });
 			})
 			.catch(console.error);
 	};
@@ -30,19 +30,17 @@ function Form({ token }) {
 		<div>
 			<div>
 				<form onSubmit={handleSubmit} className='create-form'>
-					<label for='apparel'>apparel</label>
+					<label for='apparel'>Apparel Type</label>
 					<input
 						onChange={handleChange}
-						name='apparel'
-						value={apparel.apparel}
-						placeholder='apparel_type'
+						name='apparel_type'
+						value={apparel.apparel_type}
 					/>
-					<label for='quantity'>quantity </label>
+					<label for='quantity'>Quantity </label>
 					<input
 						onChange={handleChange}
 						name='quantity'
 						value={apparel.quantity}
-						placeholder='quantity'
 					/>
 					<button id='button' type='submit'>
 						{' '}
