@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Apparels(props) {
+const aboutus = () => {
     return (
         <div>
             
         </div>
     );
-}
+};
 
-export default Apparels;
+export default aboutus;
