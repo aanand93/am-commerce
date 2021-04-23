@@ -27,7 +27,7 @@ const SignIn = ({ setToken, setUser, token, user }) => {
 				setToken(tokenData.data.token);
 
 				//Get USER
-				fetch(`${APIurl}/${tokenData.data.user.id}`)
+				fetch(`${APIurl}/${tokenData.data.user}`)
 					.then((res) => res.json())
 					.then((user) => {
 						setUser(user);
