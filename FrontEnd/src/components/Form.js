@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 import APIurl from '../config';
-import axios from 'axios';
+// import axios from 'axios';
 
 function Form({ token }) {
 	//  const [token, setToken] = useState(null);
-	const [apparel, setApparel] = useState({ apparel: '', quantity: 0 });
+	const [apparel, setApparel] = useState({ apparel_type: '', quantity: 0 });
 
 	const handleChange = (event) => {
 		setApparel({ ...apparel, [event.target.name]: event.target.value });
@@ -13,37 +13,34 @@ function Form({ token }) {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		axios({
-			url: `${APIurl}/clients`,
+		fetch(`${APIurl}/clients`, {
 			method: 'POST',
-			header: {
-				Authorization: `bearer ${token}`,
+			headers: {
+				Authorization: `Bearer ${token}`,
 			},
+			body: JSON.stringify(apparel),
 		})
-			.then((res) => res.json())
-
+			.then((res) => {
+				setApparel({ apparel_type: '', quantity: 0 });
+			})
 			.catch(console.error);
-
-		console.log(token);
 	};
 
 	return (
 		<div>
 			<div>
-				<form onSubmit={handleSubmit} token={token} className='create-form'>
-					<label for='apparel'>apparel</label>
+				<form onSubmit={handleSubmit} className='create-form'>
+					<label for='apparel'>Apparel Type</label>
 					<input
 						onChange={handleChange}
-						name='apparel'
+						name='apparel_type'
 						value={apparel.apparel_type}
-						placeholder='apparel_type'
 					/>
-					<label for='quantity'>quantity </label>
+					<label for='quantity'>Quantity </label>
 					<input
 						onChange={handleChange}
 						name='quantity'
 						value={apparel.quantity}
-						placeholder='quantity'
 					/>
 					<button id='button' type='submit'>
 						{' '}

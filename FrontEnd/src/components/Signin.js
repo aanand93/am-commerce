@@ -4,7 +4,6 @@ import { Redirect } from 'react-router';
 import APIurl from '../config.js';
 
 const SignIn = ({ setToken, setUser, token, user }) => {
-	
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const changeEmail = (event) => {
@@ -28,7 +27,7 @@ const SignIn = ({ setToken, setUser, token, user }) => {
 				setToken(tokenData.data.token);
 
 				//Get USER
-				fetch(`${APIurl}/${tokenData.data.user._id}`)
+				fetch(`${APIurl}/${tokenData.data.user.id}`)
 					.then((res) => res.json())
 					.then((user) => {
 						setUser(user);
@@ -64,8 +63,6 @@ const SignIn = ({ setToken, setUser, token, user }) => {
 					<button onClick={(event) => signInUser(event)}>Sign In!</button>
 				</form>
 				<br />
-				
-				
 			</div>
 		);
 	}
