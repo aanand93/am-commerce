@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 // import SignOutPage from '../SignOutPage';
 import APIurl from '../config.js';
-import Form from './Form';
 
-const Signup = ({ user, setUser, token, setToken }) => {
+const Signup = ({ setUser, setToken }) => {
+	const history = useHistory();
 	const [userName, setUserName] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -36,73 +36,64 @@ const Signup = ({ user, setUser, token, setToken }) => {
 				return user.data;
 			}) //Sign in the user
 			.then((user) => {
-				axios
-					.post(`${APIurl}/signin`, {
-						email: user.email,
-						password: password,
-					})
-					.then((res) => {
-						setToken(res.data.token);
-						console.log(res.data.token);
-					});
+				return axios.post(`${APIurl}/signin`, {
+					email: user.email,
+					password: password,
+				});
+			})
+			.then((res) => {
+				setToken(res.data.token);
+				history.push('/Form');
+				console.log(res.data.token);
 			});
 	};
 
-	if (token) {
-		return (
-			<div>
-				<h1>Enter your Custom Inquiry info </h1>
-				<Form token={token} />
-			</div>
-		);
-	} else {
-		return (
-			<div className='newForm'>
-				<h1>Sign Up!</h1>
-				<form>
-					<b>USERNAME:</b>
-					<br />
-					<input
-						type='text'
-						name='userName'
-						placeholder='Name'
-						onChange={changeUserName}
-					/>
-					<br />
-					<b>EMAIL:</b>
-					<br />
-					<input
-						type='text'
-						name='email'
-						placeholder='Email'
-						onChange={changeEmail}
-					/>
-					<br />
-					<b>PASSWORD:</b>
-					<br />
-					<input
-						type='text'
-						name='password'
-						placeholder='Password'
-						onChange={changePassword}
-					/>
-					<br />
-					<br />
-					<button className='myButton' onClick={(event) => signUpUser(event)}>
-						Sign Up!
-					</button>
-					<div>
-						{' '}
-						<h1></h1>{' '}
-						<Link className='signIn' to='/signin'>
-							Login Here!
-						</Link>
-					</div>
-				</form>
+	return (
+		<div className='newForm'>
+			<h1>Sign Up!</h1>
+			<form>
+				<b>USERNAME:</b>
 				<br />
-			</div>
-		);
-	}
+				<input
+					type='text'
+					name='userName'
+					placeholder='Name'
+					onChange={changeUserName}
+				/>
+				<br />
+				<b>EMAIL:</b>
+				<br />
+				<input
+					type='text'
+					name='email'
+					placeholder='Email'
+					onChange={changeEmail}
+				/>
+				<br />
+				<b>PASSWORD:</b>
+				<br />
+				<input
+					type='text'
+					name='password'
+					placeholder='Password'
+					onChange={changePassword}
+				/>
+				<br />
+				<br />
+				<button className='myButton' onClick={(event) => signUpUser(event)}>
+					Sign Up!
+				</button>
+				<div>
+					{' '}
+					<h1></h1>{' '}
+					<Link className='signIn' to='/signin'>
+						Login Here!
+					</Link>
+				</div>
+			</form>
+			<br />
+		</div>
+	);
 };
 
 export default Signup;

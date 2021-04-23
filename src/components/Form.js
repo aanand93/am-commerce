@@ -5,13 +5,14 @@ import APIurl from '../config';
 
 function Form({ token }) {
 	//  const [token, setToken] = useState(null);
+	console.log(token);
 	const [apparel, setApparel] = useState({ apparel_type: '', quantity: 0 });
 
 	const handleChange = (event) => {
 		setApparel({ ...apparel, [event.target.name]: event.target.value });
 	};
- const data = {
-		apparel_type:apparel.apparel_type ,
+	const data = {
+		apparel_type: apparel.apparel_type,
 		quantity: apparel.quantity,
 		apparel_color: apparel.apparel_color,
 		type_of_application: apparel.type_of_application,
@@ -20,8 +21,8 @@ function Form({ token }) {
 		company_name: apparel.company_name,
 		phone_number: apparel.phone_number,
 		date_needed: apparel.date_needed,
- };
- const handleSubmit = (event) => {
+	};
+	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
 			url: 'http://localhost:4000/api/clients',
@@ -29,24 +30,23 @@ function Form({ token }) {
 			headers: {
 				Authorization: 'Bearer ' + token,
 			},
-      
+
 			data,
 		})
 			.then(console.log)
 			.catch(console.error);
- };
+	};
 
-		// axios({
-		// 	url: `${APIurl}/clients`,
-		// 	method: 'POST',
-		// 	header: {
-		// 		Authorization: 'Bearer' + token,
-		// 	},
-		// })
-		// 	.then((res) => res.json())
-		// 	.catch(console.error);
-		// console.log(token);
-
+	// axios({
+	// 	url: `${APIurl}/clients`,
+	// 	method: 'POST',
+	// 	header: {
+	// 		Authorization: 'Bearer' + token,
+	// 	},
+	// })
+	// 	.then((res) => res.json())
+	// 	.catch(console.error);
+	// console.log(token);
 
 	return (
 		<div>
