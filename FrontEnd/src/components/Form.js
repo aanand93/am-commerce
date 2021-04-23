@@ -3,7 +3,7 @@ import axios from 'axios';
 import APIurl from '../config';
 // import axios from 'axios';
 
-function Form({ token, client }) {
+function Form({ token }) {
 	//  const [token, setToken] = useState(null);
 	const [apparel, setApparel] = useState({ apparel_type: '', quantity: 0 });
 
@@ -29,6 +29,7 @@ function Form({ token, client }) {
 			headers: {
 				Authorization: 'Bearer ' + token,
 			},
+      
 			data,
 		})
 			.then(console.log)
@@ -45,25 +46,23 @@ function Form({ token, client }) {
 		// 	.then((res) => res.json())
 		// 	.catch(console.error);
 		// console.log(token);
-	
+
 
 	return (
 		<div>
 			<div>
 				<form onSubmit={handleSubmit} className='create-form'>
-					<label for='apparel'>apparel</label>
+					<label for='apparel'>Apparel Type</label>
 					<input
 						onChange={handleChange}
 						name='apparel_type'
 						value={apparel.apparel_type}
-						placeholder='apparel_type'
 					/>
-					<label for='quantity'>quantity </label>
+					<label for='quantity'>Quantity </label>
 					<input
 						onChange={handleChange}
 						name='quantity'
 						value={apparel.quantity}
-						placeholder='quantity'
 					/>
 					<label for='apparel_color'>apparel_color </label>
 					<input

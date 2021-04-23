@@ -37,6 +37,7 @@ router.get('/:id', handleValidateId, (req, res, next) => {
 // CREATE
 // POST api/clients
 router.post('/', requireToken, (req, res, next) => {
+	console.log(req.body);
 	Client.create({ ...req.body, owner: req.user._id })
 		.then((client) => res.status(201).json(client))
 		.catch(next);
