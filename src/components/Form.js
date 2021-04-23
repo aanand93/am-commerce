@@ -25,7 +25,7 @@ function Form({ token }) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios({
-			url: 'http://localhost:4000/api/clients',
+			url: `${APIurl}/clients`,
 			method: 'POST',
 			headers: {
 				Authorization: 'Bearer ' + token,
