@@ -1,12 +1,19 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
-.link{
-  color: white
+.link {
+	color: white;
 }
 
-.link:hover{
-  text-decoration:  none;
+.link:hover {
+	text-decoration: none;
 }
 
+.create-form {
+	padding: 25px;
+}
+
+.inputbox {
+	padding: 10px;
+}

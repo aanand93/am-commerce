@@ -37,84 +37,110 @@ function Form({ token }) {
 			.catch(console.error);
 	};
 
-	// axios({
-	// 	url: `${APIurl}/clients`,
-	// 	method: 'POST',
-	// 	header: {
-	// 		Authorization: 'Bearer' + token,
-	// 	},
-	// })
-	// 	.then((res) => res.json())
-	// 	.catch(console.error);
-	// console.log(token);
-
 	return (
 		<div>
 			<div>
 				<form onSubmit={handleSubmit} className='create-form'>
-					<label for='apparel'>Apparel Type</label>
+					<label className='inputbox' for='apparel'>
+						Apparel Type:
+					</label>
 					<input
 						onChange={handleChange}
 						name='apparel_type'
 						value={apparel.apparel_type}
+						placeholder='Shirts, hoodies, etc...'
+						className='inputbox'
 					/>
-					<label for='quantity'>Quantity </label>
+					<br />
+					<label className='inputbox' for='quantity'>
+						Quantity:
+					</label>
 					<input
 						onChange={handleChange}
 						name='quantity'
 						value={apparel.quantity}
+						placeholder='How many items?'
+						className='inputbox'
 					/>
-					<label for='apparel_color'>apparel_color </label>
+					<br />
+					<label className='inputbox' for='apparel_color'>
+						Apparel Color:
+					</label>
 					<input
 						onChange={handleChange}
 						name='apparel_color'
 						value={apparel.apparel_color}
-						placeholder='apparel_color'
+						placeholder='Blue, Orange, Red, etc...'
+						className='inputbox'
 					/>
-					<label for='type_of_application'>type_of_application </label>
+					<br />
+					<label className='inputbox' for='type_of_application'>
+						Type of Application:
+					</label>
 					<input
 						onChange={handleChange}
 						name='type_of_application'
 						value={apparel.type_of_application}
-						placeholder='type_of_application'
+						placeholder='Screenprint/Embroidery'
+						className='inputbox'
 					/>
-					<label for='ink_color'>ink_color </label>
+					<br />
+					<label className='inputbox' for='ink_color'>
+						Ink Color:
+					</label>
 					<input
 						onChange={handleChange}
 						name='ink_color'
 						value={apparel.ink_color}
-						placeholder='ink_color'
+						placeholder='Blue, Orange, Red, etc...'
+						className='inputbox'
 					/>
-					<label for='thread_color'>thread_color </label>
+					<br />
+					<label className='inputbox' for='thread_color'>
+						Thread Color:
+					</label>
 					<input
 						onChange={handleChange}
 						name='thread_color'
 						value={apparel.thread_color}
-						placeholder='thread_color'
+						placeholder='Blue, Orange, Red, etc...'
+						className='inputbox'
 					/>
-					<label for='company_name'>company_name </label>
+					<br />
+					<label className='inputbox' for='company_name'>
+						Company Name:
+					</label>
 					<input
 						onChange={handleChange}
 						name='company_name'
 						value={apparel.company_name}
-						placeholder='company_name'
+						placeholder='Company Name'
+						className='inputbox'
 					/>
-					<label for='phone_number'>phone_number </label>
+					<br />
+					<label className='inputbox' for='phone_number'>
+						Phone Number:
+					</label>
 					<input
 						onChange={handleChange}
 						name='phone_number'
 						value={apparel.phone_number}
-						placeholder='phone_number'
+						placeholder='3015552222'
+						className='inputbox'
 					/>
-					<label for='date_needed'>date_needed </label>
+					<br />
+					<label className='inputbox' for='date_needed'>
+						Date Needed:
+					</label>
 					<input
 						onChange={handleChange}
 						name='date_needed'
 						value={apparel.date_needed}
-						placeholder='date_needed'
+						placeholder='Date Needed'
+						className='inputbox'
 					/>
+					<br />
 					<button id='button' type='submit'>
-						{' '}
 						Submit
 					</button>
 				</form>
