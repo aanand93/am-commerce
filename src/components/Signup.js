@@ -84,8 +84,6 @@ const Signup = ({ setUser, setToken }) => {
 					Sign Up!
 				</button>
 				<div>
-					{' '}
-					<h1></h1>{' '}
 					<Link className='signIn' to='/signin'>
 						Login Here!
 					</Link>

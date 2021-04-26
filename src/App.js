@@ -1,25 +1,26 @@
 import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Nav from './components/Nav';
+import Home from './components/indexs/Home';
+import Nav from './Nav/Nav';
 import Form from './components/Form';
-import Apparel from './components/Apparel';
-// import Signin from './components/Signin';
-import aboutus from './components/aboutus';
-
+import Apparel from './components/Apparel/Apparel';
+import aboutus from './components/about/aboutus';
+import Signup from  './components/Signup'
 function App() {
 	const [token, setToken] = useState();
-
+	const [user, setUser] = useState(null);
 	return (
 		<div className='App'>
 			<Router>
 				<Nav />
 				<main>
-					<Route path='/' render={() => <Home setToken={setToken} />} exact />
-					<Route path='aboutus' component={aboutus}></Route>
+					<Route path='/' exact component={Home} />
 					<Route path='/Form' render={() => <Form token={token} />} />
 					<Route path='/Apparel' component={Apparel} />
+					<Route path='/sign-up'render={() => (
+					<Signup user={user} setUser={setUser} setToken={setToken} />)}/>
+					<Route path='/about-us' component={aboutus} />
 				</main>
 			</Router>
 		</div>
