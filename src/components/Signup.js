@@ -44,7 +44,7 @@ const Signup = ({ setUser, setToken }) => {
 			.then((res) => {
 				setToken(res.data.token);
 				history.push('/Form');
-				console.log(res.data.token);
+				// console.log(res.data.token);
 			});
 	};
 

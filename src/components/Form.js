@@ -5,7 +5,7 @@ import APIurl from '../config';
 
 function Form({ token }) {
 	//  const [token, setToken] = useState(null);
-	console.log(token);
+	// console.log(token);
 	const [apparel, setApparel] = useState({ apparel_type: '', quantity: 0 });
 
 	const handleChange = (event) => {
