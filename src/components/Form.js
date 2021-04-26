@@ -52,69 +52,88 @@ function Form({ token }) {
 		<div>
 			<div>
 				<form onSubmit={handleSubmit} className='create-form'>
-					<label for='apparel'>Apparel Type</label>
-					<input
-						onChange={handleChange}
-						name='apparel_type'
-						value={apparel.apparel_type}
-					/>
-					<label for='quantity'>Quantity </label>
-					<input
-						onChange={handleChange}
-						name='quantity'
-						value={apparel.quantity}
-					/>
-					<label for='apparel_color'>apparel_color </label>
-					<input
-						onChange={handleChange}
-						name='apparel_color'
-						value={apparel.apparel_color}
-						placeholder='apparel_color'
-					/>
-					<label for='type_of_application'>type_of_application </label>
-					<input
-						onChange={handleChange}
-						name='type_of_application'
-						value={apparel.type_of_application}
-						placeholder='type_of_application'
-					/>
-					<label for='ink_color'>ink_color </label>
-					<input
-						onChange={handleChange}
-						name='ink_color'
-						value={apparel.ink_color}
-						placeholder='ink_color'
-					/>
-					<label for='thread_color'>thread_color </label>
-					<input
-						onChange={handleChange}
-						name='thread_color'
-						value={apparel.thread_color}
-						placeholder='thread_color'
-					/>
-					<label for='company_name'>company_name </label>
-					<input
-						onChange={handleChange}
-						name='company_name'
-						value={apparel.company_name}
-						placeholder='company_name'
-					/>
-					<label for='phone_number'>phone_number </label>
-					<input
-						onChange={handleChange}
-						name='phone_number'
-						value={apparel.phone_number}
-						placeholder='phone_number'
-					/>
-					<label for='date_needed'>date_needed </label>
-					<input
-						onChange={handleChange}
-						name='date_needed'
-						value={apparel.date_needed}
-						placeholder='date_needed'
-					/>
-					<button id='button' type='submit'>
-						{' '}
+					<div className='input-fields'>
+						<label for='apparel'>Apparel Type: </label>
+						<input
+							onChange={handleChange}
+							name='apparel_type'
+							value={apparel.apparel_type}
+							placeholder='Shirts, Hats, Hoodies ...'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='quantity'>Quantity: </label>
+						<input
+							onChange={handleChange}
+							name='quantity'
+							value={apparel.quantity}
+							placeholder='How Many?'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='apparel_color'>Apparel Color: </label>
+						<input
+							onChange={handleChange}
+							name='apparel_color'
+							value={apparel.apparel_color}
+							placeholder='What Color(s)?'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='type_of_application'>Screenprint/Embroidery: </label>
+						<input
+							onChange={handleChange}
+							name='type_of_application'
+							value={apparel.type_of_application}
+							placeholder='Screenprint/Embroidery'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='ink_color'>Ink Color: </label>
+						<input
+							onChange={handleChange}
+							name='ink_color'
+							value={apparel.ink_color}
+							placeholder='What Color(s)?'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='thread_color'>Thread Color: </label>
+						<input
+							onChange={handleChange}
+							name='thread_color'
+							value={apparel.thread_color}
+							placeholder='What Color(s)'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='company_name'>Company Name: </label>
+						<input
+							onChange={handleChange}
+							name='company_name'
+							value={apparel.company_name}
+							placeholder='Company'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='phone_number'>Phone Number: </label>
+						<input
+							onChange={handleChange}
+							name='phone_number'
+							value={apparel.phone_number}
+							placeholder='2125552222'
+						/>
+					</div>
+					<div className='input-fields'>
+						<label for='date_needed'>Date Needed: </label>
+						<input
+							onChange={handleChange}
+							name='date_needed'
+							value={apparel.date_needed}
+							placeholder='Date Needed'
+						/>
+					</div>
+					<button className='form-submit' id='button' type='submit'>
 						Submit
 					</button>
 				</form>
