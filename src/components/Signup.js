@@ -64,7 +64,7 @@ const Signup = ({ setUser, setToken }) => {
 				<b>EMAIL:</b>
 				<br />
 				<input
-					type='text'
+					type='email'
 					name='email'
 					placeholder='Email'
 					onChange={changeEmail}
@@ -73,7 +73,7 @@ const Signup = ({ setUser, setToken }) => {
 				<b>PASSWORD:</b>
 				<br />
 				<input
-					type='text'
+					type='password'
 					name='password'
 					placeholder='Password'
 					onChange={changePassword}
