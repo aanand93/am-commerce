@@ -7,6 +7,7 @@ import Form from './components/Form';
 import Apparel from './components/Apparel/Apparel';
 import aboutus from './components/about/aboutus';
 import Signup from  './components/Signup'
+import signin from './components/Signin'
 function App() {
 	const [token, setToken] = useState();
 	const [user, setUser] = useState(null);
@@ -20,6 +21,7 @@ function App() {
 					<Route path='/Apparel' component={Apparel} />
 					<Route path='/sign-up'render={() => (
 					<Signup user={user} setUser={setUser} setToken={setToken} />)}/>
+					<Route path='/signin' component={signin}/>
 					<Route path='/about-us' component={aboutus} />
 				</main>
 			</Router>
