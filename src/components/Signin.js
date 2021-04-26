@@ -3,8 +3,10 @@ import axios from 'axios';
 import { Redirect } from 'react-router';
 import APIurl from '../config.js';
 
-const SignIn = ({ setToken, setUser, token, user }) => {
+const SignIn = () => {
 	const [email, setEmail] = useState('');
+	const [token, setToken] = useState();
+	const [user, setUser] = useState();
 	const [password, setPassword] = useState('');
 	const changeEmail = (event) => {
 		setEmail(event.target.value);
