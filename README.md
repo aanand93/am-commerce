@@ -6,7 +6,7 @@
 
 ### Description
 
-- The app we created is to streamline the quote process for custom apparel. Theoretically this layout could work for any business that needs input from the user or client inorder to begin their process of businss. In this case we are creating a inquiry form for custom apparel. The app allows a user to sign up and then fill out and submit a form in order to recieve an accurate quote from the custom apparel company. The admins would be able to access the backend data and email back each potentially customer with a detailed quote based on the information entered.
+- The app we created is to streamline the quote process for a custom apparel company. Theoretically this layout could work for any business that needs input from the user or client inorder to begin their process of businss. In this case we are creating a inquiry form for custom apparel. The app allows a user to sign up and then fill out and submit a form in order to recieve an accurate quote from the custom apparel company. The user can login once they sign up and submit as many inquirys as they like. The admins would be able to access the backend data and email back each potentially customer with a detailed quote based on the information entered.
 
 ### Tech Used:
 
@@ -15,6 +15,10 @@
 - Node.js
 - MongoDB
 - Bootstrap
+- Font Awesome
+- Axios
+- React Router
+- Docker (developement)
 
 ### MVP
 
